@@ -4,24 +4,16 @@ import com.example.demo.persistence.VehicleCustomRepository
 import com.example.demo.persistence.VehicleEntity
 import com.example.demo.persistence.VehicleNotFoundException
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import org.junit.jupiter.api.extension.ExtendWith
-import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.data.redis.core.RedisTemplate
-import org.springframework.test.context.junit.jupiter.SpringExtension
-import org.springframework.test.context.junit4.SpringRunner
 import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
 import util.IntegrationTest
 import java.util.*
 
-@RunWith(SpringRunner::class)
 @SpringBootTest
-@ExtendWith(SpringExtension::class) // extension needed for Junit 5
 @Testcontainers
 @IntegrationTest
 /**

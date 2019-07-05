@@ -7,21 +7,17 @@ import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.assertThrows
-import org.junit.jupiter.api.extension.ExtendWith
-import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.context.junit.jupiter.SpringExtension
-import org.springframework.test.context.junit4.SpringRunner
 import redis.embedded.RedisServer
 import util.IntegrationTest
 import java.util.*
 
 @SpringBootTest
-@RunWith(SpringRunner::class)
-@ExtendWith(SpringExtension::class) // extension needed for Junit 5
 @IntegrationTest
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 /**
  * This test class demonstrates Integration test with usage of embedded Redis
  */
@@ -30,20 +26,16 @@ class VehicleCustomRepositoryEmbeddedTest {
     @Autowired
     private lateinit var vehicleCustomRepository: VehicleCustomRepository
 
-    companion object {
-        private val redisServer = RedisServer(6379)
+    private val redisServer = RedisServer(6379)
 
-        @BeforeAll
-        @JvmStatic
-        fun setUp() {
-            redisServer.start()
-        }
+    @BeforeAll
+    fun setUp() {
+        redisServer.start()
+    }
 
-        @AfterAll
-        @JvmStatic
-        fun reset() {
-            redisServer.stop()
-        }
+    @AfterAll
+    fun reset() {
+        redisServer.stop()
     }
 
     @Test

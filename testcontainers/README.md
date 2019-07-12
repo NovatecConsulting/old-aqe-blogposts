@@ -1,5 +1,5 @@
 # Testcontainers - Bring Your Integration Tests to a New Level, Blog post
-This is a demo code related to the Novatec blog post ....---Link to be done---. </br> 
+This is a demo code related to the Novatec blog post https://www.novatec-gmbh.de/en/blog/testcontainers-bring-your-integration-tests-to-a-new-level. </br> 
 It shows the usage of the Testcontainers in a Spring Boot microservice. <br>
 
 ## 1. Import Project
